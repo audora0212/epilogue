@@ -7,10 +7,13 @@ import './globals.css'
 export const metadata: Metadata = {
   title: '에필로그 방명록',
   description: '진심에 대한 방명록 페이지입니다',
-  // viewport removed from here
+  icons: {
+    icon: '/new-favicon.ico',         // 기본 favicon
+    shortcut: '/new-favicon.ico',     // 바로가기 아이콘
+    apple: '/new-favicon.ico',        // iOS 터치 아이콘 (필요시 PNG로 교체)
+  },
 }
 
-// 새로 추가: App Router 전용 viewport 설정
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
@@ -29,9 +32,15 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
-        {/* PWA 매니페스트 및 아이콘 */}
+        {/* manifest */}
         <link rel="manifest" href="/manifest.json" />
-        <link rel="apple-touch-icon" href="/icon-192.png" />
+
+        {/* favicon 변경 */}
+        <link rel="icon" href="/new-favicon.ico" />
+        <link rel="shortcut icon" href="/new-favicon.ico" />
+
+        {/* Apple touch icon (iOS) */}
+        <link rel="apple-touch-icon" href="/new-favicon.ico" />
       </head>
       <body>
         <div className="safe-area-wrapper">{children}</div>

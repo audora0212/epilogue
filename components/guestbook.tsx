@@ -7,23 +7,25 @@ import WriteMessageForm from './write-message-form';
 import BottomBar from './BottomBar';
 
 export default function Guestbook() {
-  const [entries, setEntries] = useState<Array<{ id: number; nickname: string; message: string; date: string }>>([]);
+  const [entries, setEntries] = useState<
+    Array<{ id: number; nickname: string; message: string; date: string }>
+  >([]);
   const [showWriteForm, setShowWriteForm] = useState(false);
 
-useEffect(() => {
-  if (showWriteForm) return;
-  fetch('/api/messages')
-    .then(res => {
-      console.log('API status:', res.status);   // ← 상태코드 확인
-      return res.json();
-    })
-    .then(data => {
-      console.log('Fetched messages:', data);  // ← 실제 응답 바디 확인
-      setEntries(data);
-    })
-    .catch(err => console.error('Fetch error:', err));
-}, [showWriteForm]);
-
+  useEffect(() => {
+    if (showWriteForm) return;
+    fetch('/api/messages')
+      .then((res) => {
+        console.log('API status:', res.status);
+        return res.json();
+      })
+      .then((data: Array<{ id: number; nickname: string; message: string; date: string }>) => {
+        // 최근 추가된 메시지를 먼저 보여주도록 정렬
+        const sorted = data.sort((a, b) => b.id - a.id);
+        setEntries(sorted);
+      })
+      .catch((err) => console.error('Fetch error:', err));
+  }, [showWriteForm]);
 
   if (showWriteForm) {
     return <WriteMessageForm onBack={() => setShowWriteForm(false)} />;
@@ -49,9 +51,7 @@ useEffect(() => {
           <h1 className="text-lg font-bold text-gray-800 mb-1 mt-10">
             에필로그 팀/故윤영주께
           </h1>
-          <h1 className="text-lg font-bold text-gray-800 mb-2">
-            작별을 보내주세요
-          </h1>
+          <h1 className="text-lg font-bold text-gray-800 mb-2">작별을 보내주세요</h1>
           <p className="text-xs text-gray-500 font-pretendard">
             진심에 대한 방명록 페이지입니다
           </p>

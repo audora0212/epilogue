@@ -39,7 +39,6 @@ export default function SuccessScreen({
             {submittedMessage.nickname}님의 작별이 남겨졌어요
           </h1>
           <div className="text-sm text-gray-500">
-            현재까지 <span className="font-bold">{totalCount}</span>개의 작별이 모였습니다
           </div>
         </div>
 
