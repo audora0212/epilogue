@@ -1,0 +1,13 @@
+{
+  "name": "에필로그 방명록",
+  "short_name": "방명록",
+  "description": "진심에 대한 방명록 페이지입니다",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fef7ed",
+  "theme_color": "#fef7ed",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
