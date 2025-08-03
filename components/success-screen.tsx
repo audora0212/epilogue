@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import { useEffect } from "react"
 import BottomBar from "./BottomBar"
@@ -31,13 +31,16 @@ export default function SuccessScreen({
     >
       <div className="max-w-md mx-auto px-4">
         {/* Header */}
-        <div className="text-center pt-safe pt-8 mb-12">
-          <div className="text-sm text-gray-600 mb-4">
+        <div className="text-center pt-safe pt-8 mb-6">
+          <div className="text-sm text-gray-600 mb-2">
             에필로그 팀/(가상의 고인) 故윤영주께 보내는
           </div>
-          <h1 className="text-xl font-bold text-gray-800">
-            {totalCount}번째 작별이 남겨졌어요
+          <h1 className="text-xl font-bold text-gray-800 mb-2">
+            {submittedMessage.nickname}님의 작별이 남겨졌어요
           </h1>
+          <div className="text-sm text-gray-500">
+            현재까지 <span className="font-bold">{totalCount}</span>개의 작별이 모였습니다
+          </div>
         </div>
 
         <div className="flex justify-center mb-32">

@@ -1,59 +1,97 @@
-"use client"
+'use client';
 
-import { useState, useEffect } from "react"
-import { ArrowLeft } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Textarea } from "@/components/ui/textarea"
-import { Input } from "@/components/ui/input"
-import SuccessScreen from "./success-screen"
-import BottomBar from "./BottomBar"
+import { useState, useEffect } from 'react';
+import { ArrowLeft } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Textarea } from '@/components/ui/textarea';
+import { Input } from '@/components/ui/input';
+import SuccessScreen from './success-screen';
+import BottomBar from './BottomBar';
 
 interface WriteMessageFormProps {
-  onBack: () => void
+  onBack: () => void;
 }
 
 export default function WriteMessageForm({ onBack }: WriteMessageFormProps) {
-  const [message, setMessage] = useState("")
-  const [senderName, setSenderName] = useState("")
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [showSuccess, setShowSuccess] = useState(false)
+  const [message, setMessage] = useState('');
+  const [senderName, setSenderName] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const [submittedData, setSubmittedData] = useState<{
-    nickname: string
-    message: string
-    date: string
-  } | null>(null)
+    nickname: string;
+    message: string;
+    date: string;
+  } | null>(null);
+  const [totalCount, setTotalCount] = useState(0);
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    // 현재 메시지 수 조회
+    async function fetchCount() {
+      try {
+        const res = await fetch('/api/messages');
+        if (res.ok) {
+          const data = await res.json();
+          setTotalCount(data.length);
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    }
+    fetchCount();
+    window.scrollTo(0, 0);
+  }, []);
 
   if (showSuccess && submittedData) {
-    return <SuccessScreen onGoHome={onBack} submittedMessage={submittedData} totalCount={83} />
+    return (
+      <SuccessScreen
+        onGoHome={onBack}
+        submittedMessage={submittedData}
+        totalCount={totalCount}
+      />
+    );
   }
 
   const handleSubmit = async () => {
     if (!message.trim() || !senderName.trim()) {
-      alert("메시지와 이름을 모두 입력해주세요.")
-      return
+      alert('메시지와 이름을 모두 입력해주세요.');
+      return;
     }
 
-    setIsSubmitting(true)
-    await new Promise((r) => setTimeout(r, 1000))
+    setIsSubmitting(true);
 
-    const currentDate = new Date().toLocaleDateString("ko-KR", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    })
+    const currentDate = new Date().toLocaleDateString('ko-KR', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
 
-    setSubmittedData({ nickname: senderName, message, date: currentDate })
-    setIsSubmitting(false)
-    setShowSuccess(true)
-  }
+    try {
+      const res = await fetch('/api/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nickname: senderName,
+          message,
+          date: currentDate,
+        }),
+      });
+
+      if (!res.ok) throw new Error('저장 실패');
+
+      const messages = await res.json();
+      setTotalCount(messages.length);
+      setSubmittedData({ nickname: senderName, message, date: currentDate });
+      setShowSuccess(true);
+    } catch (e) {
+      alert('메시지 저장에 실패했습니다.');
+      console.error(e);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="relative h-[87vh] bg-white overflow-auto">
-      {/* 수정된 헤더 */}
       <div className="flex items-center justify-center p-4 pb-2 pt-safe relative">
         <Button
           variant="ghost"
@@ -79,8 +117,7 @@ export default function WriteMessageForm({ onBack }: WriteMessageFormProps) {
                 에필로그가 탄생하기까지...
               </p>
               <p className="text-sm font-pretendard text-gray-700">
-                "에필로그 팀은 에필로그 서비스 시스템을 디자인하기 위해 약 30차례의
-                회의를 거쳤어요"
+                "에필로그 팀은 에필로그 서비스 시스템을 디자인하기 위해 약 30차례의 회의를 거쳤어요"
               </p>
             </div>
           </div>
@@ -122,9 +159,9 @@ export default function WriteMessageForm({ onBack }: WriteMessageFormProps) {
           disabled={isSubmitting || !message.trim() || !senderName.trim()}
           className="w-full bg-[#396F4B] bottom-20 text-white py-3 rounded-full font-medium font-pretendard disabled:bg-opacity-30"
         >
-          {isSubmitting ? "등록 중..." : "작별 남기기"}
+          {isSubmitting ? '등록 중...' : '작별 남기기'}
         </Button>
       </BottomBar>
     </div>
-  )
+  );
 }
