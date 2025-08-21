@@ -22,7 +22,7 @@ export default function SuccessScreen({
 
   return (
     <div
-      className="relative h-[87vh] flex flex-col items-center justify-center"
+      className="relative h-[89vh] flex flex-col items-center justify-center"
       style={{
         backgroundImage: "url('/background.png')",
         backgroundSize: "cover",

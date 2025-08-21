@@ -33,7 +33,7 @@ export default function Guestbook() {
 
   return (
     <div
-      className="relative h-[87vh] overflow-hidden"
+      className="relative h-[89vh] overflow-hidden"
       style={{
         backgroundImage: "url('/background.png')",
         backgroundSize: 'cover',
@@ -53,7 +53,7 @@ export default function Guestbook() {
           </h1>
           <h1 className="text-lg font-bold text-gray-800 mb-2">작별을 보내주세요</h1>
           <p className="text-xs text-gray-500 font-pretendard">
-            전시시에 대한 방명록 페이지입니다
+            전시에 대한 방명록 페이지입니다
           </p>
         </div>
 
