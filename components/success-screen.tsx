@@ -32,11 +32,11 @@ export default function SuccessScreen({
       <div className="max-w-md mx-auto px-4">
         {/* Header */}
         <div className="text-center pt-safe pt-8 mb-6">
-          <div className="text-sm text-gray-600 mb-2">
+          <div className="text-[15.4px] text-gray-600 mb-2 font-medium">
             에필로그 팀/(가상의 고인) 故윤영주께 보내는
           </div>
-          <h1 className="text-xl font-bold text-gray-800 mb-2">
-            {submittedMessage.nickname}님의 작별이 남겨졌어요
+          <h1 className="text-[22px] font-bold text-gray-800 mb-2">
+            {totalCount}번째 작별이 남겨졌어요
           </h1>
           <div className="text-sm text-gray-500">
           </div>
@@ -71,7 +71,7 @@ export default function SuccessScreen({
         <Button
           onClick={onGoHome}
           size="xl"
-          className="w-full bg-[#396F4B] text-white rounded-full font-medium mb-safe font-pretendard disabled:bg-opacity-30"
+          className="w-full bg-[#396F4B] text-white rounded-full font-medium mb-safe font-pretendard disabled:bg-opacity-30 text-[16px]"
         >
           처음으로 돌아가기
         </Button>

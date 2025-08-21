@@ -162,7 +162,7 @@ export default function WriteMessageForm({ onBack }: WriteMessageFormProps) {
           onClick={handleSubmit}
           disabled={isSubmitting || !message.trim() || !senderName.trim()}
           size="xl"
-          className="w-full bg-[#396F4B] bottom-20 text-white rounded-full font-medium font-pretendard disabled:bg-opacity-30"
+          className="w-full bg-[#396F4B] bottom-20 text-white rounded-full font-medium font-pretendard disabled:bg-opacity-30 text-[16px]"
         >
           {isSubmitting ? '등록 중...' : '작별 남기기'}
         </Button>

@@ -118,15 +118,16 @@ export default function Guestbook() {
           </div>
 
           <BottomBar>
-            <div className="bg-gray-800 text-white text-xs p-3 rounded-lg text-center font-pretendard">
+            <div className="relative bg-gray-800 text-white text-xs p-3 rounded-lg text-center font-pretendard">
               전시에 대한 방명록을 자유롭게 남겨보세요!
               <br />
               (가상의 고인) 故윤영주에게 추모사를 남겨주세요
+              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[10px] border-r-[10px] border-t-[10px] border-l-transparent border-r-transparent border-t-gray-800" />
             </div>
             <div className="mt-2 w-full">
               <Button
                 size="xl"
-                className="w-full bg-[#396F4B] text-white rounded-full font-medium font-pretendard disabled:bg-opacity-30"
+                className="w-full bg-[#396F4B] text-white rounded-full font-medium font-pretendard disabled:bg-opacity-30 text-[16px]"
                 onClick={() => setShowWriteForm(true)}
               >
                 작별 남기기
