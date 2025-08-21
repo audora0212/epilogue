@@ -161,7 +161,8 @@ export default function WriteMessageForm({ onBack }: WriteMessageFormProps) {
         <Button
           onClick={handleSubmit}
           disabled={isSubmitting || !message.trim() || !senderName.trim()}
-          className="w-full bg-[#396F4B] bottom-20 text-white py-3 rounded-full font-medium font-pretendard disabled:bg-opacity-30"
+          size="xl"
+          className="w-full bg-[#396F4B] bottom-20 text-white rounded-full font-medium font-pretendard disabled:bg-opacity-30"
         >
           {isSubmitting ? '등록 중...' : '작별 남기기'}
         </Button>

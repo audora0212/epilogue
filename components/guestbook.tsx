@@ -125,7 +125,8 @@ export default function Guestbook() {
             </div>
             <div className="mt-2 w-full">
               <Button
-                className="w-full bg-[#396F4B] text-white py-3 rounded-full font-medium font-pretendard disabled:bg-opacity-30"
+                size="xl"
+                className="w-full bg-[#396F4B] text-white rounded-full font-medium font-pretendard disabled:bg-opacity-30"
                 onClick={() => setShowWriteForm(true)}
               >
                 작별 남기기

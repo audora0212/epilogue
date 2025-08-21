@@ -70,7 +70,8 @@ export default function SuccessScreen({
       <BottomBar>
         <Button
           onClick={onGoHome}
-          className="w-full bg-[#396F4B] text-white py-3 rounded-full font-medium mb-safe font-pretendard disabled:bg-opacity-30"
+          size="xl"
+          className="w-full bg-[#396F4B] text-white rounded-full font-medium mb-safe font-pretendard disabled:bg-opacity-30"
         >
           처음으로 돌아가기
         </Button>
