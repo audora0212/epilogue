@@ -161,12 +161,12 @@ export default function Guestbook() {
                   .map(({ entry }) => (
                     <Card
                       key={entry.id}
-                      className="message-card bg-white/40 border-0 shadow-sm overflow-hidden rounded-none transform-gpu -rotate-[6deg] origin-left translate-y-[10px]"
+                      className="message-card bg-white/40 border-0 shadow-sm overflow-hidden rounded-none transform-gpu -rotate-[6.5deg] origin-left translate-y-[10px]"
                       style={{ clipPath: 'polygon(8% 0, 100% 0, 92% 100%, 0 100%)' }}
                       data-entry-id={entry.id}
                     >
                       <CardContent className="py-0 px-4">
-                        <div className="transform origin-left rotate-[0deg] skew-y-[-0.5deg]">
+                        <div className="origin-left" suppressHydrationWarning>
                           <div
                             className="text-[11px] text-gray-700 leading-relaxed mb-1"
                             style={{
@@ -175,14 +175,24 @@ export default function Guestbook() {
                               WebkitBoxOrient: 'vertical',
                               overflow: 'hidden',
                               textOverflow: 'ellipsis',
-                            }}
+                              transform: 'matrix(0.98, 0, -0.05, 1, 0, 0)',
+                              transformOrigin: 'left center',
+                            } as React.CSSProperties}
+                            suppressHydrationWarning
                           >
                             {entry.message}
                           </div>
-                          <div className="text-[10px] text-gray-600 font-pretendard flex items-center gap-1">
-                            <span className="font-medium">{maskNickname(entry.nickname)}</span>
-                            <span className="opacity-60">|</span>
-                            <span>{entry.date}</span>
+                          <div 
+                            className="text-[10px] text-gray-600 font-pretendard flex items-center gap-1"
+                            style={{
+                              transform: 'matrix(0.98, 0, -0.05, 1, 0, 0)',
+                              transformOrigin: 'left center',
+                            }}
+                            suppressHydrationWarning
+                          >
+                            <span className="font-medium" suppressHydrationWarning>{maskNickname(entry.nickname)}</span>
+                            <span className="opacity-60" suppressHydrationWarning>|</span>
+                            <span suppressHydrationWarning>{entry.date}</span>
                           </div>
                         </div>
                       </CardContent>
@@ -196,12 +206,12 @@ export default function Guestbook() {
                   .map(({ entry }) => (
                     <Card
                       key={entry.id}
-                      className="message-card bg-white/40 border-0 shadow-sm overflow-hidden rounded-none transform-gpu -rotate-[6deg] origin-left -translate-y-[8px]"
+                      className="message-card bg-white/40 border-0 shadow-sm overflow-hidden rounded-none transform-gpu -rotate-[6.5deg] origin-left -translate-y-[8px]"
                       style={{ clipPath: 'polygon(8% 0, 100% 0, 92% 100%, 0 100%)' }}
                       data-entry-id={entry.id}
                     >
                       <CardContent className="py-0 px-4">
-                        <div className="transform origin-left rotate-[0deg] skew-y-[-0.5deg]">
+                        <div className="origin-left" suppressHydrationWarning>
                           <div
                             className="text-[11px] text-gray-700 leading-relaxed mb-1"
                             style={{
@@ -210,14 +220,24 @@ export default function Guestbook() {
                               WebkitBoxOrient: 'vertical',
                               overflow: 'hidden',
                               textOverflow: 'ellipsis',
-                            }}
+                              transform: 'matrix(0.98, 0, -0.05, 1, 0, 0)',
+                              transformOrigin: 'left center',
+                            } as React.CSSProperties}
+                            suppressHydrationWarning
                           >
                             {entry.message}
                           </div>
-                          <div className="text-[10px] text-gray-600 font-pretendard flex items-center gap-1">
-                            <span className="font-medium">{maskNickname(entry.nickname)}</span>
-                            <span className="opacity-60">|</span>
-                            <span>{entry.date}</span>
+                          <div 
+                            className="text-[10px] text-gray-600 font-pretendard flex items-center gap-1"
+                            style={{
+                              transform: 'matrix(0.98, 0, -0.05, 1, 0, 0)',
+                              transformOrigin: 'left center',
+                            }}
+                            suppressHydrationWarning
+                          >
+                            <span className="font-medium" suppressHydrationWarning>{maskNickname(entry.nickname)}</span>
+                            <span className="opacity-60" suppressHydrationWarning>|</span>
+                            <span suppressHydrationWarning>{entry.date}</span>
                           </div>
                         </div>
                       </CardContent>
