@@ -11,7 +11,6 @@ export default function Guestbook() {
     Array<{ id: number; nickname: string; message: string; date: string }>
   >([]);
   const [showWriteForm, setShowWriteForm] = useState(false);
-  const [visibleIds, setVisibleIds] = useState<Set<number> | null>(null);
   const cardsContainerRef = useRef<HTMLDivElement | null>(null);
   const [pageStart, setPageStart] = useState(0);
   const [pageSize, setPageSize] = useState<number | null>(null);
@@ -49,7 +48,7 @@ export default function Guestbook() {
       if (requiredPadding !== cardsPaddingTop) {
         setCardsPaddingTop(requiredPadding);
       }
-      const next = new Set<number>();
+      const visibleCount = new Set<number>();
       const cards = container.querySelectorAll<HTMLElement>('.message-card');
       cards.forEach((el) => {
         const idAttr = el.getAttribute('data-entry-id');
@@ -57,12 +56,11 @@ export default function Guestbook() {
         const id = parseInt(idAttr, 10);
         const rect = el.getBoundingClientRect();
         if (rect.top >= containerRect.top && rect.bottom <= containerRect.bottom) {
-          next.add(id);
+          visibleCount.add(id);
         }
       });
-      setVisibleIds(next);
-      if (!hasMeasuredRef.current && next.size > 0) {
-        setPageSize(next.size);
+      if (!hasMeasuredRef.current && visibleCount.size > 0) {
+        setPageSize(visibleCount.size);
         hasMeasuredRef.current = true;
       }
     };
@@ -78,7 +76,7 @@ export default function Guestbook() {
       window.removeEventListener('resize', onResize);
       ro.disconnect();
     };
-  }, [entries]);
+  }, [entries, cardsPaddingTop]);
 
   const displayedEntries = pageSize ? entries.slice(pageStart, Math.min(entries.length, pageStart + pageSize)) : entries;
   const maxStart = pageSize ? Math.max(0, entries.length - pageSize) : 0;

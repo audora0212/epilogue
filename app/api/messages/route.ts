@@ -42,7 +42,7 @@ export async function POST(request: Request) {
 
     // 기존 데이터 읽기
     const raw = await fs.readFile(messagesFilePath, 'utf-8')
-    let messages: Array<any>
+    let messages: Array<{ id: number; nickname: string; message: string; date: string }>
     try {
       messages = raw.trim() ? JSON.parse(raw) : []
     } catch {
