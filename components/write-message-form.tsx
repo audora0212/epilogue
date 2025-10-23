@@ -141,7 +141,7 @@ export default function WriteMessageForm({ onBack }: WriteMessageFormProps) {
           </div>
 
           <div>
-            <h3 className="text-xl font-bold text-gray-800 mb-4 text-right w-full font-maruburi">From,</h3>
+            <h3 className="text-xl font-bold text-gray-800 mb-4 text-left w-full font-maruburi">From,</h3>
             <div className="relative">
               <Input
                 placeholder="남기는 이의 이름, 별명을 적어주세요"
