@@ -113,7 +113,7 @@ export default function WriteMessageForm({ onBack }: WriteMessageFormProps) {
         <Button variant="ghost" size="sm" onClick={onBack} className="absolute left-4 h-8 w-8 p-0">
           <ArrowLeft className="h-5 w-5" />
         </Button>
-        <h1 className="text-lg font-bold text-gray-800 font-pretendard">작별 남기기</h1>
+        <h1 className="text-lg font-medium text-gray-800 font-pretendard">작별 남기기</h1>
       </div>
 
       <div className="max-w-md mx-auto">
