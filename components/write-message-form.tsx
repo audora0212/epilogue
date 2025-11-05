@@ -119,7 +119,7 @@ export default function WriteMessageForm({ onBack }: WriteMessageFormProps) {
       <div className="max-w-md mx-auto">
         <div className="p-4 space-y-6">
           <div>
-            <h2 className="text-2xl font-bold text-gray-800 mb-4 font-maruburi">To, 에필로그 팀/윤영주</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4 font-maruburi">To, 에필로그 팀에게</h2>
             <div className="p-4 mb-4 bg-[#F4F5F4] rounded-lg text-left">
               <p className="text-sm font-pretendard mb-2 text-[#7E8D87]">에필로그가 탄생하기까지...</p>
               <p className={`text-sm font-pretendard transition-opacity duration-500 ${visible ? 'opacity-100' : 'opacity-0'}`}>
@@ -130,7 +130,7 @@ export default function WriteMessageForm({ onBack }: WriteMessageFormProps) {
 
           <div className="relative">
             <Textarea
-              placeholder={`진심에 대한 방명록을 자유롭게 남겨보세요!\n(가상의 고인) 故윤영주에게 추모사를 남겨주세요`}
+              placeholder={`진심에 대한 방명록을 자유롭게 남겨보세요!`}
               value={message}
               onChange={e => setMessage(e.target.value.slice(0, 150))}
               className="min-h-[200px] bg-white border-gray-200 text-base placeholder:text-sm placeholder:font-pretendard whitespace-pre-line resize-none font-pretendard"
