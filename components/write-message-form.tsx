@@ -113,7 +113,7 @@ export default function WriteMessageForm({ onBack }: WriteMessageFormProps) {
         <Button variant="ghost" size="sm" onClick={onBack} className="absolute left-4 h-8 w-8 p-0">
           <ArrowLeft className="h-10 w-10" />
         </Button>
-        <h1 className="text-lg font-medium text-gray-800 font-pretendard">작별 남기기</h1>
+        <h1 className="text-lg font-medium text-gray-800 font-pretendard">방명록 남기기</h1>
       </div>
 
       <div className="max-w-md mx-auto">
@@ -164,7 +164,7 @@ export default function WriteMessageForm({ onBack }: WriteMessageFormProps) {
           size="xl"
           className="w-full bg-[#396F4B] bottom-20 text-white rounded-full font-medium font-pretendard disabled:bg-opacity-30 text-[16px]"
         >
-          {isSubmitting ? '등록 중...' : '작별 남기기'}
+          {isSubmitting ? '등록 중...' : '방명록 남기기'}
         </Button>
       </BottomBar>
     </div>

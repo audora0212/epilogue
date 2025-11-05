@@ -36,7 +36,7 @@ export default function SuccessScreen({
             에필로그 팀에게 보내는
           </div>
           <h1 className="text-[22px] font-bold text-gray-800 mb-2">
-            {totalCount}번째 작별이 남겨졌어요
+            {totalCount}번째 방명록이 남겨졌어요
           </h1>
           <div className="text-sm text-gray-500">
           </div>

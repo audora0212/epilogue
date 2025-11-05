@@ -106,13 +106,13 @@ export default function Guestbook() {
           <h1 className="text-lg font-extrabold mb-1 mt-10 text-[#262D2A]">
             에필로그 팀에게
           </h1>
-          <h1 className="text-lg font-extrabold mb-2 bg-clip-text text-transparent bg-gradient-to-b from-[#262D2A] to-[#7C9389]">작별을 보내주세요</h1>
+          <h1 className="text-lg font-extrabold mb-2 bg-clip-text text-transparent bg-gradient-to-b from-[#262D2A] to-[#7C9389]">방명록을 보내주세요</h1>
           <p className="text-xs text-gray-500 font-pretendard">
             전시에 대한 방명록 페이지입니다
           </p>
           <div className="flex items-center justify-center mt-3 mb-1">
             <span className="text-[13px] text-[#4C5A55] font-pretendard">
-              <span className="font-bold">{entries.length}</span>개의 작별이 모였어요
+              <span className="font-bold">{entries.length}</span>개의 방명록이 모였어요
             </span>
           </div>
         </div>
@@ -256,7 +256,7 @@ export default function Guestbook() {
                 className="w-full bg-[#396F4B] text-white rounded-full font-medium font-pretendard disabled:bg-opacity-30 text-[16px]"
                 onClick={() => setShowWriteForm(true)}
               >
-                작별 남기기
+                방명록 남기기
               </Button>
             </div>
           </BottomBar>
