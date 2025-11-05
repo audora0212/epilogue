@@ -104,7 +104,7 @@ export default function Guestbook() {
       <div className="max-w-md mx-auto w-full h-full flex flex-col overflow-hidden px-4 mb-20">
         <div className="text-center flex-shrink-0 mt-[30px]">
           <h1 className="text-lg font-extrabold mb-1 mt-10 text-[#262D2A]">
-            에필로그 팀/故윤영주께
+            에필로그 팀에게
           </h1>
           <h1 className="text-lg font-extrabold mb-2 bg-clip-text text-transparent bg-gradient-to-b from-[#262D2A] to-[#7C9389]">작별을 보내주세요</h1>
           <p className="text-xs text-gray-500 font-pretendard">
@@ -248,8 +248,6 @@ export default function Guestbook() {
           <BottomBar>
             <div className="relative bg-[#262D2A] text-white text-[13px] p-3 rounded-lg text-center font-pretendard w-[97%]">
               전시에 대한 방명록을 자유롭게 남겨보세요!
-              <br />
-              (가상의 고인) 故윤영주에게 추모사를 남겨주세요
               <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[10px] border-r-[10px] border-t-[10px] border-l-transparent border-r-transparent border-t-[#262D2A]" />
             </div>
             <div className="mt-2 w-full">
